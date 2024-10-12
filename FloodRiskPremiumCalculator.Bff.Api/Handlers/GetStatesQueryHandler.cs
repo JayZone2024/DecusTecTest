@@ -8,7 +8,7 @@ public record GetStatesQuery : IRequest<OperationResult<IEnumerable<StateDto>>>;
 
 public class GetStatesQueryHandler(IStateRatingRepository repository) : IRequestHandler<GetStatesQuery, OperationResult<IEnumerable<StateDto>>>
 {
-    public async Task<OperationResult<IEnumerable<StateDto>>> Handle(GetStatesQuery request, CancellationToken cancellationToken)
+    public async Task<OperationResult<IEnumerable<StateDto>>> Handle(GetStatesQuery query, CancellationToken cancellationToken)
     {
         var results = await repository.GetAllAsync(cancellationToken);
 

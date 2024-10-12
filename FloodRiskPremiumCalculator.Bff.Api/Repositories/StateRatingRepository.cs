@@ -36,37 +36,30 @@ public class StateRatingRepository : IStateRatingRepository
 
         var stateRate = stateRatings.FirstOrDefault(_ => _.State.Equals(state, StringComparison.CurrentCultureIgnoreCase));
 
-        if (stateRate.IsNull())
-        {
-            return null;
-        }
-
-        return Task.FromResult(stateRate);
+        return stateRate.IsNull() 
+            ? Task.FromResult<StateRateModel>(null)
+            : Task.FromResult(stateRate);
     }
 
     private void Seed()
     {
         var stateRatings = new List<StateRateModel>
         {
-            new StateRateModel
+            new()
             {
                 State = "California", Ratings = new List<RatingModel>
                 {
-                    new RatingModel
-                        { Band = "A", BaseRate = 600, MaxDistanceApplicableToBaseRate = 5M, Multiplier = 1.2M },
-                    new RatingModel
-                        { Band = "B", BaseRate = 800, MaxDistanceApplicableToBaseRate = 5M, Multiplier = 1.2M },
+                    new() { Band = "A", BaseRate = 600 },
+                    new() {Band = "B", BaseRate = 800 },
                 }
             },
 
-            new StateRateModel
+            new()
             {
                 State = "Florida", Ratings = new List<RatingModel>
                 {
-                    new RatingModel
-                        { Band = "A", BaseRate = 500, MaxDistanceApplicableToBaseRate = 5M, Multiplier = 1.2M },
-                    new RatingModel
-                        { Band = "B", BaseRate = 400, MaxDistanceApplicableToBaseRate = 5M, Multiplier = 1.2M },
+                    new() {Band = "A", BaseRate = 500 },
+                    new() { Band = "B", BaseRate = 400 },
                 }
             },
         };
