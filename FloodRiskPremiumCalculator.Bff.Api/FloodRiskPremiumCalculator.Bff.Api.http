@@ -1,0 +1,6 @@
+@FloodRiskPremiumCalculator.Bff.Api_HostAddress = http://localhost:5062
+
+GET {{FloodRiskPremiumCalculator.Bff.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
