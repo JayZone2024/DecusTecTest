@@ -1,0 +1,29 @@
+﻿@model FloodRiskPremiumCalculator.Ui.Models.StateRatesViewModel
+
+@{
+    ViewData["Title"] = "Calculated Premiums By Bands";
+}
+
+<div class="form-group">
+    <label>State</label>
+    @Html.LabelForModel(Model.State)
+</div>
+
+<div class="form-group">
+    <table class="table">
+        <thead>
+        <th>Band</th>
+        <th>Premium</th>
+        </thead>
+        <tbody>
+        @foreach (var rating in Model.Ratings)
+        {
+            <tr>
+                <td>@rating.Band</td>
+                <td>@rating.Premium</td>
+            </tr>
+        }
+        </tbody>
+    </table>
+</div>
+
