@@ -12,7 +12,7 @@ public class WhenStateIsFloridaAndBandIsAAndDistanceToWaterIsLessThanFiveMilesTh
         Name = nameof(WhenStateIsFloridaAndBandIsAAndDistanceToWaterIsLessThanFiveMilesThanApplyMultiplierRule);
     }
 
-    public override Task ApplyAsync(PremiumCalculationContext context)
+    public override Task ApplyAsync(PremiumCalculationContext context, CancellationToken cancellationToken = default)
     {
         if (context.State != Florida)
             return Task.CompletedTask;

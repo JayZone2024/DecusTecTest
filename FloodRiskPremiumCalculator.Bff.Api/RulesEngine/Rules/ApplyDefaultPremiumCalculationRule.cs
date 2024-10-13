@@ -9,7 +9,7 @@ public class ApplyDefaultPremiumCalculationRule : PremiumCalculationBuilderBase
         Name = nameof(ApplyDefaultPremiumCalculationRule);
     }
 
-    public override Task ApplyAsync(PremiumCalculationContext context)
+    public override Task ApplyAsync(PremiumCalculationContext context, CancellationToken cancellationToken = default)
     {
         context.StatePremiumCalculation = new StateRateDto
         {

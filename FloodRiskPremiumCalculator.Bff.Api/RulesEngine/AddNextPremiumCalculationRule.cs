@@ -13,9 +13,9 @@ public class AddNextPremiumCalculationRule : PremiumCalculationBuilderBase
         Name = nameof(AddNextRule);
     }
 
-    public override async Task ApplyAsync(PremiumCalculationContext context)
+    public override async Task ApplyAsync(PremiumCalculationContext context, CancellationToken cancellationToken = default)
     {
-        await _previousRule.ApplyAsync(context);
-        await _nextRule.ApplyAsync(context);
+        await _previousRule.ApplyAsync(context, cancellationToken);
+        await _nextRule.ApplyAsync(context, cancellationToken);
     }
 }

@@ -10,7 +10,7 @@ public class WhenStateIsCaliforniaAndBandIsBAndDistanceToWaterIsLessThanFiveMile
         Name = nameof(WhenStateIsCaliforniaAndBandIsBAndDistanceToWaterIsLessThanFiveMilesThanAddFiftyDollarsToPremiumRule);
     }
 
-    public override Task ApplyAsync(PremiumCalculationContext context)
+    public override Task ApplyAsync(PremiumCalculationContext context, CancellationToken cancellationToken = default)
     {
         if (context.State != California)
             return Task.CompletedTask;

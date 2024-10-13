@@ -8,5 +8,5 @@ public interface IPremiumCalculationRule
 
     IPremiumCalculationRule AddNextRule(IPremiumCalculationRule nextRule);
 
-    Task ApplyAsync(PremiumCalculationContext context);
+    Task ApplyAsync(PremiumCalculationContext context, CancellationToken cancellationToken = default);
 }

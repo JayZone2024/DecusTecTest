@@ -13,5 +13,5 @@ public abstract class PremiumCalculationBuilderBase : IPremiumCalculationRule
         return new AddNextPremiumCalculationRule(this, nextRule);
     }
 
-    public abstract Task ApplyAsync(PremiumCalculationContext context);
+    public abstract Task ApplyAsync(PremiumCalculationContext context, CancellationToken cancellationToken = default);
 }
