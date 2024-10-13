@@ -16,7 +16,7 @@ public class PremiumCalculator : IPremiumCalculator
 
     public async Task<StateRateDto> CalculatePremiumAsync(PremiumCalculationContext context, CancellationToken cancellationToken = default)
     {
-        await _premiumCalculationRules.ApplyAsync(context);
+        await _premiumCalculationRules.ApplyAsync(context, cancellationToken);
 
         return context.StatePremiumCalculation;
     }
